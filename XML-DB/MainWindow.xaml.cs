@@ -24,5 +24,10 @@ namespace XML_DB
         {
             InitializeComponent();
         }
+
+        private void buttonOpen_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
