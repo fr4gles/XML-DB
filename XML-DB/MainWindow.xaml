@@ -4,5 +4,6 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <Button x:Name="buttonOpen" Width="100" Height="100" Margin="86,32,331,187" Click="buttonOpen_Click"></Button>
+        <Button x:Name="buttonOpen_Copy" Width="100" Height="100" Margin="242,32,175,187" Click="buttonOpen_Click"/>
     </Grid>
 </Window>
