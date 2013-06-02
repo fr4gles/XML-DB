@@ -11,6 +11,7 @@ namespace XML_DB
     public class XmlToSql
     {
         private string _tableName;
+        public List<string> COLUMNS = new List<string>();
 
         public XmlToSql(string tableName)
         {
@@ -32,7 +33,7 @@ namespace XML_DB
                 try
                 {
                     var xElements = field as XElement[] ?? field.ToArray();
-                    colName = xElements[0].Value;
+                    COLUMNS.Add(colName = xElements[0].Value);
 
                     colType = xElements[1].Value;
 
@@ -44,7 +45,7 @@ namespace XML_DB
                     {
                         comAtr = "NULL";
                     }
-                    
+
                 }
                 catch (Exception ex)
                 {
@@ -64,31 +65,30 @@ namespace XML_DB
         {
             if (records == null) return null;
 
-            var insertInto = "Insert into " + _tableName + " values\n";
+            var result = new List<string>();
 
-            var insertValue = new List<string>();
+            var begginig = "insert into " + _tableName
+                        + " (" + string.Join(", ", COLUMNS) + ") " + " values (";
 
             foreach (var record in records)
             {
-                var tmpInsertValue = "(";
+                var tmpInsertValue = "";
                 try
                 {
                     var xElements = record as XElement[] ?? record.ToArray();
 
-                    tmpInsertValue += string.Join(", ", xElements.Select(d => "'"+d.Value+"'"));
+                    tmpInsertValue += string.Join(", ", xElements.Select(d => "'" + d.Value + "'"));
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message + " | " + ex.StackTrace);
                 }
-                tmpInsertValue += ")";
+                tmpInsertValue += ");";
 
-                insertValue.Add(tmpInsertValue);
+                result.Add(begginig + tmpInsertValue);
             }
 
-            insertInto += string.Join(",\n", insertValue) + ";\n";
-
-            return insertInto;
+            return string.Join("\n", result);
         }
     }
 }

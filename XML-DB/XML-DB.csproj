@@ -69,6 +69,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ConnectToSql.cs" />
     <Compile Include="XmlParseAndRead.cs" />
     <Compile Include="XmlToSql.cs" />
     <Compile Include="_MyDatabase_1DataSet.Designer.cs">
@@ -131,7 +132,9 @@
     <Content Include="MyDatabase#1.sdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Resource Include="xml-samples\xml-sample-1.xml" />
+    <Resource Include="xml-samples\xml-sample-1.xml">
+      <SubType>Designer</SubType>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">

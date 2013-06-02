@@ -10,7 +10,7 @@
       </Field>
       <Field>
         <Field_Name>NAME</Field_Name>
-        <Field_Type>nvarchar(MAX)</Field_Type>
+        <Field_Type>nvarchar(50)</Field_Type>
         <Field_Atr>NOT NULL</Field_Atr>
       </Field>
       <Field>
@@ -37,11 +37,6 @@
         <Field_Type>nvarchar(50)</Field_Type>
         <Field_Atr>NOT NULL</Field_Atr>
       </Field>
-      <Field>
-        <Field_Name>BIRTH_DATE</Field_Name>
-        <Field_Type>Date</Field_Type>
-        <Field_Atr>NOT NULL</Field_Atr>
-      </Field>
     </Structure>
     <Records>
       <Record>
@@ -52,7 +47,6 @@
         <POST_CODE>33-340</POST_CODE>
         <COUNTRY>Polska</COUNTRY>
         <PHONE>931-321-412</PHONE>
-        <BIRTH_DATE>12-12-1995</BIRTH_DATE>
       </Record>
 
       <Record>
@@ -63,7 +57,6 @@
         <POST_CODE>-</POST_CODE>
         <COUNTRY>Polska</COUNTRY>
         <PHONE>777-777-777</PHONE>
-        <BIRTH_DATE>12-12-1032</BIRTH_DATE>
       </Record>
 
       <Record>
@@ -74,7 +67,6 @@
         <POST_CODE>-</POST_CODE>
         <COUNTRY>Polska</COUNTRY>
         <PHONE>888-888-888</PHONE>
-        <BIRTH_DATE>1-1-1111</BIRTH_DATE>
       </Record>
 
     </Records>

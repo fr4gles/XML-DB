@@ -29,6 +29,8 @@ namespace XML_DB
 
         private void button_openXmlFile_Click(object sender, RoutedEventArgs e)
         {
+            textBox_main.Text = "";
+
             var openDialog = new OpenFileDialog
                 {
                     Filter = "xml files (*.xml)|*.xml|All files (*.*)|*.*",
@@ -46,6 +48,26 @@ namespace XML_DB
             textBox_main.Text += "\n\n";
 
             textBox_main.Text += xmlResult.MakeSqlInsertValuesDbCommandFrom(result.ReadRecords());
+        }
+
+        private void button_openSdfFile_Click(object sender, RoutedEventArgs e)
+        {
+            textBox_main.Text = "";
+
+            var openDialog = new OpenFileDialog
+            {
+                Filter = "xml files (*.sdf)|*.sdf|All files (*.*)|*.*",
+                InitialDirectory = Environment.CurrentDirectory,
+                Title = "Wybierz plik sdf"
+            };
+
+            if (!openDialog.ShowDialog().Value) return;
+
+            var pathToFile = openDialog.FileName;
+
+            var sql = new ConnectToSql(pathToFile);
+
+
         }
     }
 }
