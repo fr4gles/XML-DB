@@ -42,6 +42,10 @@ namespace XML_DB
             var result = new XmlParseAndRead(pathToFile);
             var xmlResult = new XmlToSql(result.ReadTableName());
             textBox_main.Text = xmlResult.MakeSqlCreateDbCommandFrom(result.ReadStructure());
+            
+            textBox_main.Text += "\n\n";
+
+            textBox_main.Text += xmlResult.MakeSqlInsertValuesDbCommandFrom(result.ReadRecords());
         }
     }
 }

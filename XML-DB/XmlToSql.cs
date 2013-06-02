@@ -24,11 +24,11 @@ namespace XML_DB
             var createTable = "Create table " + _tableName + " \n(\n"
                                  + "id int NOT NULL IDENTITY,\n";
 
+            var colName = "";
+            var colType = "";
+            var comAtr = "";
             foreach (var field in fields)
             {
-                var colName = "";
-                var colType = "";
-                var comAtr = "";
                 try
                 {
                     var xElements = field as XElement[] ?? field.ToArray();
@@ -58,6 +58,37 @@ namespace XML_DB
                            + ");\n";
 
             return createTable;
+        }
+
+        public string MakeSqlInsertValuesDbCommandFrom(IEnumerable<IEnumerable<XElement>> records)
+        {
+            if (records == null) return null;
+
+            var insertInto = "Insert into " + _tableName + " values\n";
+
+            var insertValue = new List<string>();
+
+            foreach (var record in records)
+            {
+                var tmpInsertValue = "(";
+                try
+                {
+                    var xElements = record as XElement[] ?? record.ToArray();
+
+                    tmpInsertValue += string.Join(", ", xElements.Select(d => "'"+d.Value+"'"));
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message + " | " + ex.StackTrace);
+                }
+                tmpInsertValue += ")";
+
+                insertValue.Add(tmpInsertValue);
+            }
+
+            insertInto += string.Join(",\n", insertValue) + ";\n";
+
+            return insertInto;
         }
     }
 }
