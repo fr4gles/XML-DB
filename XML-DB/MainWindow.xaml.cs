@@ -39,8 +39,9 @@ namespace XML_DB
             if (!openDialog.ShowDialog().Value) return;
 
             var pathToFile = openDialog.FileName;
-            var result = new XmlParser(pathToFile);
-            textBox_main.Text = result.ResultText;
+            var result = new XmlParseAndRead(pathToFile);
+            var xmlResult = new XmlToSql(result.ReadTableName());
+            textBox_main.Text = xmlResult.MakeSqlCreateDbCommandFrom(result.ReadStructure());
         }
     }
 }

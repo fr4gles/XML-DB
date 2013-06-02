@@ -1,52 +1,46 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <database>
   <table>
-    <name>TestTable</name>
+    <Name>TestTable</Name>
     <Structure>
       <Field>
         <Field_Name>CUSTOMER_NUMBER</Field_Name>
-        <Field_Type>Numeric</Field_Type>
-        <Field_Len>20</Field_Len>
+        <Field_Type>int</Field_Type>
         <Field_Atr>NOT NULL</Field_Atr>
       </Field>
       <Field>
         <Field_Name>NAME</Field_Name>
-        <Field_Type>Character</Field_Type>
-        <Field_Len>90</Field_Len>
+        <Field_Type>nvarchar(MAX)</Field_Type>
         <Field_Atr>NOT NULL</Field_Atr>
       </Field>
       <Field>
         <Field_Name>STREET</Field_Name>
-        <Field_Type>Character</Field_Type>
-        <Field_Len>30</Field_Len>
+        <Field_Type>nvarchar(50)</Field_Type>
         <Field_Atr>NOT NULL</Field_Atr>
       </Field>
       <Field>
         <Field_Name>CITY</Field_Name>
-        <Field_Type>Character</Field_Type>
-        <Field_Len>15</Field_Len>
+        <Field_Type>nvarchar(50)</Field_Type>
         <Field_Atr>NOT NULL</Field_Atr>
       </Field>
       <Field>
         <Field_Name>POST_CODE</Field_Name>
-        <Field_Type>Character</Field_Type>
-        <Field_Len>10</Field_Len>
+        <Field_Type>nvarchar(50)</Field_Type>
       </Field>
       <Field>
         <Field_Name>COUNTRY</Field_Name>
-        <Field_Type>Character</Field_Type>
-        <Field_Len>50</Field_Len>
+        <Field_Type>nvarchar(50)</Field_Type>
+        <Field_Atr>NOT NULL</Field_Atr>
       </Field>
       <Field>
         <Field_Name>PHONE</Field_Name>
-        <Field_Type>Character</Field_Type>
-        <Field_Len>15</Field_Len>
+        <Field_Type>nvarchar(50)</Field_Type>
         <Field_Atr>NOT NULL</Field_Atr>
       </Field>
       <Field>
         <Field_Name>BIRTH_DATE</Field_Name>
         <Field_Type>Date</Field_Type>
-        <Field_Len>10</Field_Len>
+        <Field_Atr>NOT NULL</Field_Atr>
       </Field>
     </Structure>
     <Records>

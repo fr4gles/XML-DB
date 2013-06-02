@@ -9,13 +9,34 @@ using System.Xml.Linq;
 
 namespace XML_DB
 {
-    class XmlParseAndRead
+    public class XmlParseAndRead
     {
         private readonly XDocument _document;
 
         public XmlParseAndRead(String pathToFile)
         {
             _document = XDocument.Load(pathToFile);
+
+            ReadTableName();
+            ReadStructure();
+        }
+
+        public string ReadTableName()
+        {
+            IEnumerable<string> q = null;
+            try
+            {
+                q = from p in _document.Descendants("table")
+                    let xElement = p.Element("Name")
+                    where xElement != null
+                    select xElement.Value;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + " | " + ex.StackTrace);
+            }
+
+            return q != null ? q.First() : null;
         }
 
         public IEnumerable<IEnumerable<XElement>> ReadRecords()

@@ -69,7 +69,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="XmlParser.cs" />
+    <Compile Include="XmlParseAndRead.cs" />
+    <Compile Include="XmlToSql.cs" />
     <Compile Include="_MyDatabase_1DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
