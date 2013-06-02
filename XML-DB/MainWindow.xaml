@@ -3,7 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Button x:Name="buttonOpen" Width="100" Height="100" Margin="86,32,331,187" Click="buttonOpen_Click"></Button>
-        <Button x:Name="buttonOpen_Copy" Width="100" Height="100" Margin="242,32,175,187" Click="buttonOpen_Click"/>
+        <Button x:Name="button_openXmlFile" Content="Wczytaj plik *.xml" HorizontalAlignment="Left" Margin="381,10,0,0" VerticalAlignment="Top" Width="126" Height="23" Click="button_openXmlFile_Click"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" Text="Ścieżka do pliku ..." VerticalAlignment="Top" Width="366" RenderTransformOrigin="0.542,1.087"/>
+        <TextBox x:Name="textBox_main" TextWrapping="Wrap" Text="Napisz coś ... ;)" HorizontalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Margin="10,38,10,10" />
     </Grid>
 </Window>
