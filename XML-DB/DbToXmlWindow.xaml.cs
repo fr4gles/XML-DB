@@ -25,8 +25,8 @@ namespace XML_DB
         public DbToXmlWindow()
         {
             InitializeComponent();
-            
-            if(!loadData()) return;
+
+            if (!loadData()) return;
 
             RefreshView();
             ConvertDbToXml();
@@ -56,13 +56,12 @@ namespace XML_DB
 
             return true;
         }
-        
+
 
         private void listBox_tables_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             RefreshView();
             ConvertDbToXml();
-
         }
 
         private void RefreshView()
@@ -80,8 +79,10 @@ namespace XML_DB
 
         private void ConvertDbToXml()
         {
-            var tmp = DbToXmlWriter.CreateStructure(listBox_tables.SelectedItem.ToString()) +
-                      DbToXmlWriter.CreateRecords(listBox_tables.SelectedItem.ToString());
+            var tmp = "<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n<database>\n<table>\n" +
+                DbToXmlWriter.CreateStructure(listBox_tables.SelectedItem.ToString()) +
+                      DbToXmlWriter.CreateRecords(listBox_tables.SelectedItem.ToString())
+                      + "  </table>\n</database>\n";
             webBrowserXml.NavigateToString(tmp);
         }
     }
