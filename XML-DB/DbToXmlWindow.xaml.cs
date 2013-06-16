@@ -25,14 +25,14 @@ namespace XML_DB
         public DbToXmlWindow()
         {
             InitializeComponent();
-            loadData();
+            
+            if(!loadData()) return;
 
-
+            RefreshView();
+            ConvertDbToXml();
         }
 
-
-
-        public void loadData()
+        private bool loadData()
         {
             sql = new ConnectToSql(MainWindow.mainSettings.databasePath);
 
@@ -40,7 +40,7 @@ namespace XML_DB
             {
                 MessageBox.Show("Wczytana baza danych: " + (MainWindow.mainSettings.databasePath) +
                                 " --> niestety nie zawiera żadnych tabel. Wybierz inny plik.");
-                return;
+                return false;
             }
 
             try
@@ -51,18 +51,18 @@ namespace XML_DB
             catch (Exception ex)
             {
                 MessageBox.Show("Błąd podczas wczytywania listBoxa - operacja wczytywania zostaje przerwana: " + ex.Message + "\n" + ex.StackTrace);
-                return;
+                return false;
             }
 
-            RefreshView();
+            return true;
         }
         
 
         private void listBox_tables_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             RefreshView();
-
             ConvertDbToXml();
+
         }
 
         private void RefreshView()
@@ -75,13 +75,14 @@ namespace XML_DB
             {
                 MessageBox.Show("Błą podczas wczytywania listView - operacja wczytywania zostaje przerwana: " + ex.Message +
                                 "\n" + ex.StackTrace);
-                return;
             }
         }
 
         private void ConvertDbToXml()
         {
-
+            var tmp = DbToXmlWriter.CreateStructure(listBox_tables.SelectedItem.ToString()) +
+                      DbToXmlWriter.CreateRecords(listBox_tables.SelectedItem.ToString());
+            webBrowserXml.NavigateToString(tmp);
         }
     }
 }
