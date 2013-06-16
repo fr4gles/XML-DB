@@ -77,6 +77,10 @@
     <Compile Include="LaunchSqlCommand.xaml.cs">
       <DependentUpon>LaunchSqlCommand.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs" />
+    <Compile Include="SettingsWindow.xaml.cs">
+      <DependentUpon>SettingsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="XmlParseAndRead.cs" />
     <Compile Include="XmlToDbWindow.xaml.cs">
       <DependentUpon>XmlToDbWindow.xaml</DependentUpon>
@@ -111,6 +115,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="SettingsWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="XmlToDbWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
