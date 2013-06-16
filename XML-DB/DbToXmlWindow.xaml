@@ -15,8 +15,6 @@
         <Grid.Background>
             <SolidColorBrush Color="{DynamicResource MainColor}"/>
         </Grid.Background>
-        <Button x:Name="button_openSdfFile" Content="Wczytaj plik *.sdf" Margin="0,21,90,0" VerticalAlignment="Top" Height="23" Click="button_openSdfFile_Click" HorizontalAlignment="Right" Width="96" Grid.Column="1"/>
-        <TextBox x:Name="textBox_pathToSDF" Height="23" Margin="10,21,191,0" TextWrapping="Wrap" Text="Ścieżka do pliku ..." VerticalAlignment="Top" Grid.ColumnSpan="2"/>
         <Button x:Name="buttonSave" Content="Zapisz" Margin="0,23,10,0" HorizontalAlignment="Right" Width="75" Height="20" VerticalAlignment="Top" Grid.Column="1"/>
         <ListBox x:Name="listBox_tables" HorizontalAlignment="Left" Margin="10,10,0,10" Grid.Row="1" Width="126" SelectionChanged="listBox_tables_SelectionChanged"/>
         <WebBrowser x:Name="webBrowserXml" Margin="10" Grid.ColumnSpan="2" Grid.Row="2"/>

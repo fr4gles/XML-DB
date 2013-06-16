@@ -25,28 +25,20 @@ namespace XML_DB
         public DbToXmlWindow()
         {
             InitializeComponent();
+            loadData();
+
+
         }
 
-        private void button_openSdfFile_Click(object sender, RoutedEventArgs e)
+
+
+        public void loadData()
         {
-
-            var openDialog = new OpenFileDialog
-            {
-                Filter = "xml files (*.sdf)|*.sdf|All files (*.*)|*.*",
-                InitialDirectory = Environment.CurrentDirectory,
-                Title = "Wybierz plik sdf"
-            };
-
-            if (!openDialog.ShowDialog().Value) return;
-
-            var pathToFile = openDialog.FileName;
-            textBox_pathToSDF.Text = pathToFile;
-
-            sql = new ConnectToSql(pathToFile);
+            sql = new ConnectToSql(MainWindow.mainSettings.databasePath);
 
             if (sql.isEmpty)
             {
-                MessageBox.Show("Wczytana baza danych: " + pathToFile +
+                MessageBox.Show("Wczytana baza danych: " + (MainWindow.mainSettings.databasePath) +
                                 " --> niestety nie zawiera żadnych tabel. Wybierz inny plik.");
                 return;
             }
@@ -58,12 +50,13 @@ namespace XML_DB
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Błą podczas wczytywania listBoxa - operacja wczytywania zostaje przerwana: " + ex.Message + "\n" + ex.StackTrace);
+                MessageBox.Show("Błąd podczas wczytywania listBoxa - operacja wczytywania zostaje przerwana: " + ex.Message + "\n" + ex.StackTrace);
                 return;
             }
 
             RefreshView();
         }
+        
 
         private void listBox_tables_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

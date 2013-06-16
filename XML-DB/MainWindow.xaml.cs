@@ -28,7 +28,7 @@ namespace XML_DB
     public partial class MainWindow : Window
     {
 
-        public Settings mainSettings = null;
+        public static Settings mainSettings = null;
         public MainWindow()
         {
             InitializeComponent();

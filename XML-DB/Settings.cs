@@ -27,9 +27,7 @@ namespace XML_DB
             Stream stream = new FileStream("settingsFile.obj", FileMode.Open, FileAccess.Read, FileShare.Read);
             Settings obj = (Settings)formatter.Deserialize(stream);
             stream.Close();
-            return obj;
-
-        }
+            return obj;        }
 
         public static void SaveSettingsToFile(Settings tempSettings)
         {

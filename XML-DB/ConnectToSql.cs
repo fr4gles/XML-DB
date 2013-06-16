@@ -24,8 +24,6 @@ namespace XML_DB
             connection.Open();
 
             ReadTablesFrom(connection);
-
-
         }
 
         private void ReadTablesFrom(SqlCeConnection connection)
