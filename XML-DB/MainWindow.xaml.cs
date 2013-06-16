@@ -35,42 +35,20 @@ namespace XML_DB
             
             if (System.IO.File.Exists("settingsFile.obj"))
             {
-                mainSettings = LoadSettingsFromFile("settingsFile.obj");
+                mainSettings = Settings.LoadSettingsFromFile("settingsFile.obj");
             }
             else
             {                
                 MessageBox.Show("Nie wykryto pliku ustawień bazy danych. Wprowadź ustawienia");
                 var newWindow = new SettingsWindow();
                 newWindow.ShowDialog();
-                mainSettings = LoadSettingsFromFile("settingsFile.obj");                 
+                mainSettings = Settings.LoadSettingsFromFile("settingsFile.obj");                 
             }
             MessageBox.Show(mainSettings.databasePath);//do testowania
-            MessageBox.Show(mainSettings.password);//jw
-
-            
+            MessageBox.Show(mainSettings.password);//jw            
         }
 
-        public Settings LoadSettingsFromFile(string settingsFilePath)
-        {
-            IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream(settingsFilePath, FileMode.Open, FileAccess.Read, FileShare.Read);
-            Settings obj = (Settings)formatter.Deserialize(stream);
-            stream.Close();
-            return obj;
-            
-        }
-
-        public void SaveSettingsToFile(Settings tempSettings,string settingsFilePath)
-        {                     
-            IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream(settingsFilePath, FileMode.Create, FileAccess.Write, FileShare.None);
-            formatter.Serialize(stream, tempSettings);
-            stream.Close();
-        }
-
-
-
-      
+              
         private void buttonXmlToDb_Click(object sender, RoutedEventArgs e)
         {
 
@@ -95,7 +73,7 @@ namespace XML_DB
         {
             var newWindow = new LaunchSqlCommand();
             newWindow.Show();
-            mainSettings = LoadSettingsFromFile("settingsFile.obj");     
+            mainSettings = Settings.LoadSettingsFromFile("settingsFile.obj");     
         }
     }
 }
