@@ -70,6 +70,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CommandLauncher.cs" />
     <Compile Include="ConnectToSql.cs" />
     <Compile Include="DbToXmlWriter.cs" />
     <Compile Include="ManageMsSqlDb.cs" />

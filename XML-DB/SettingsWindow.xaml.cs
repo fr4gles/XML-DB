@@ -26,6 +26,11 @@ namespace XML_DB
         public SettingsWindow()
         {
             InitializeComponent();
+            if (MainWindow.mainSettings != null)
+            {
+                textBox_pathToSDF.Text = MainWindow.mainSettings.databasePath;
+                textBoxPass.Text = MainWindow.mainSettings.password;
+            }
         }
 
         private void buttonSave_Click(object sender, RoutedEventArgs e)

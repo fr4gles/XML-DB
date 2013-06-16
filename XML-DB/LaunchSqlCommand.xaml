@@ -6,9 +6,9 @@
         <Grid.Background>
             <SolidColorBrush Color="{DynamicResource MainColor}"/>
         </Grid.Background>
-        <TextBox Height="121" Margin="10,10,10,0" TextWrapping="Wrap" Text="Kwerenda ( SQL )" VerticalAlignment="Top"/>
-        <TextBox Margin="10,193,10,10" TextWrapping="Wrap" Text="Wynik polecenia"/>
-        <Button x:Name="buttonLaunchSql" Content="Wykonaj" Margin="261,152,256,0" Height="20" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBoxCommand" Height="121" Margin="10,10,10,0" TextWrapping="Wrap" Text="Kwerenda ( SQL )" VerticalAlignment="Top"/>
+        <TextBox x:Name="textBoxReturn" Margin="10,193,10,10" TextWrapping="Wrap" Text="Wynik polecenia"/>
+        <Button x:Name="buttonLaunchSql" Content="Wykonaj" Margin="261,152,256,0" Height="20" VerticalAlignment="Top" Click="buttonLaunchSql_Click"/>
 
     </Grid>
 </Window>

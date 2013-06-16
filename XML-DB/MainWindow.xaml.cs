@@ -43,9 +43,7 @@ namespace XML_DB
                 var newWindow = new SettingsWindow();
                 newWindow.ShowDialog();
                 mainSettings = Settings.LoadSettingsFromFile();                 
-            }
-            MessageBox.Show(mainSettings.databasePath);//do testowania
-            MessageBox.Show(mainSettings.password);//jw            
+            }              
         }
 
               
@@ -68,7 +66,6 @@ namespace XML_DB
             newWindow.ShowDialog();
 
         }
-
         private void buttonCommand_Click(object sender, RoutedEventArgs e)
         {
             var newWindow = new LaunchSqlCommand();
