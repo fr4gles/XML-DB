@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Microsoft.Win32;
+using System.Data.SqlClient;
+using System.Data.SqlServerCe;
 
 
 namespace XML_DB
@@ -72,6 +74,50 @@ namespace XML_DB
             var sql = new ConnectToSql(pathToFile);
 
 
+        }
+
+        private void buttonLaunch_Click(object sender, RoutedEventArgs e)
+        {
+
+            var openDialog = new OpenFileDialog
+            {
+                Filter = "xml files (*.sdf)|*.sdf|All files (*.*)|*.*",
+                InitialDirectory = Environment.CurrentDirectory,
+                Title = "Wybierz plik sdf"
+            };
+
+            if (!openDialog.ShowDialog().Value) return;
+
+            var pathToFile = openDialog.FileName;
+            
+
+            var connection = new SqlCeConnection(@"Data Source=" + pathToFile + ";password=xml-db123");
+            connection.Open();
+            
+
+            SqlCeCommand cmd = connection.CreateCommand();
+
+            cmd.CommandText = "select * from TestTable";
+            SqlCeDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+               int j=0;
+               string row = "Rekord: " + j;
+                
+                
+                for (int i = 0; i < reader.FieldCount; i++)
+                {
+                  row+= "\nCol name:: " + reader.GetName(i) + " Col type: " + reader.GetDataTypeName(i);
+                    
+                }
+                
+                MessageBox.Show(row);
+                j++;
+                
+
+            }          
+            
         }
     }
 }
