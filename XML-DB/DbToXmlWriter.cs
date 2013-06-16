@@ -9,11 +9,6 @@ namespace XML_DB
 {
     public class DbToXmlWriter
     {
-        public DbToXmlWriter()
-        {
-
-        }
-
         private static int size;
 
         public static string CreateStructure(string tableName)
@@ -26,18 +21,7 @@ namespace XML_DB
                                         MainWindow.mainSettings.password))
             {
                 connection.Open();
-                //                var cmd = connection.CreateCommand();
-                //                cmd.CommandText = @"SELECT COLUMN_NAME FROM INFORMATION_SCHEMA.COLUMNS WHERE (TABLE_Name = '" + tableName +
-                //                                  "') ORDER BY ORDINAL_POSITION";
-                //
-                //                var reader2 = cmd.ExecuteReader();
-                //
-                //                while (reader2.Read());
-                //
-                //                var numberOfFields = reader2.FieldCount;
-                //                connection.Close();
-                //            
-                //                connection.Open();
+
                 var cmd = connection.CreateCommand();
                 cmd.CommandText = "select * from " + tableName;
 
@@ -62,11 +46,6 @@ namespace XML_DB
 
                     structure += AddField(Field_Name, Field_Type, Field_Atr);
                 }
-
-//                while (reader.Read())
-//                {
-//
-//                }
             }
 
             structure += "</Structure>\n";
@@ -89,19 +68,9 @@ namespace XML_DB
 
                 var reader = cmd.ExecuteReader();
 
-//                var i = 0;
                 while (reader.Read())
                 {
-//                    if (i == size)
-//                        i = 0;
-
-                    var record = "<Record>\n";
-                    for (int i = 0; i < size; i++)
-                    {
-                        record += AddRecord(reader, i);
-                    }
-                    record += "</Record>\n";
-                    records += record;
+                    records += AddRecord(reader);
                 }
             }
 
@@ -110,15 +79,21 @@ namespace XML_DB
             return records;
         }
 
+        private static string AddRecord(SqlCeDataReader reader)
+        {
+            var record = "<Record>\n";
+            for (int i = 0; i < size; i++)
+            {
+                record += AddRecord(reader, i);
+            }
+            record += "</Record>\n";
+            return record;
+        }
+
         private static string AddRecord(SqlCeDataReader reader, int i)
         {
             var Field_Name = reader.GetName(i);
             return OpenXml(Field_Name) + reader.GetValue(i) + CloseXml(Field_Name) + "\n";
-        }
-
-        private static string AddRecord(SqlCeDataReader reader)
-        {
-            return null;
         }
 
         private static string AddField(string Field_Name, string Field_Type, string Field_Atr)
