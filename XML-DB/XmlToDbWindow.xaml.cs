@@ -12,7 +12,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-
 namespace XML_DB
 {
     /// <summary>
@@ -52,8 +51,7 @@ namespace XML_DB
         }
 
         private void buttonSave_Click(object sender, RoutedEventArgs e)
-        {
-            
+        {            
 
 
 
