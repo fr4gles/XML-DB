@@ -35,14 +35,14 @@ namespace XML_DB
             
             if (System.IO.File.Exists("settingsFile.obj"))
             {
-                mainSettings = Settings.LoadSettingsFromFile("settingsFile.obj");
+                mainSettings = Settings.LoadSettingsFromFile();
             }
             else
             {                
                 MessageBox.Show("Nie wykryto pliku ustawień bazy danych. Wprowadź ustawienia");
                 var newWindow = new SettingsWindow();
                 newWindow.ShowDialog();
-                mainSettings = Settings.LoadSettingsFromFile("settingsFile.obj");                 
+                mainSettings = Settings.LoadSettingsFromFile();                 
             }
             MessageBox.Show(mainSettings.databasePath);//do testowania
             MessageBox.Show(mainSettings.password);//jw            
@@ -73,7 +73,7 @@ namespace XML_DB
         {
             var newWindow = new LaunchSqlCommand();
             newWindow.Show();
-            mainSettings = Settings.LoadSettingsFromFile("settingsFile.obj");     
+            mainSettings = Settings.LoadSettingsFromFile();     
         }
     }
 }

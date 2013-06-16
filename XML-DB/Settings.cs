@@ -21,20 +21,20 @@ namespace XML_DB
             databasePath = path;
         }
 
-        public static Settings LoadSettingsFromFile(string settingsFilePath)
+        public static Settings LoadSettingsFromFile()
         {
             IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream(settingsFilePath, FileMode.Open, FileAccess.Read, FileShare.Read);
+            Stream stream = new FileStream("settingsFile.obj", FileMode.Open, FileAccess.Read, FileShare.Read);
             Settings obj = (Settings)formatter.Deserialize(stream);
             stream.Close();
             return obj;
 
         }
 
-        public static void SaveSettingsToFile(Settings tempSettings, string settingsFilePath)
+        public static void SaveSettingsToFile(Settings tempSettings)
         {
             IFormatter formatter = new BinaryFormatter();
-            Stream stream = new FileStream(settingsFilePath, FileMode.Create, FileAccess.Write, FileShare.None);
+            Stream stream = new FileStream("settingsFile.obj", FileMode.Create, FileAccess.Write, FileShare.None);
             formatter.Serialize(stream, tempSettings);
             stream.Close();
         }
