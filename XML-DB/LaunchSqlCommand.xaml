@@ -3,9 +3,12 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="LaunchSqlCommand" Height="400" Width="600">
     <Grid>
+        <Grid.Background>
+            <SolidColorBrush Color="{DynamicResource MainColor}"/>
+        </Grid.Background>
         <TextBox Height="121" Margin="10,10,10,0" TextWrapping="Wrap" Text="Kwerenda ( SQL )" VerticalAlignment="Top"/>
         <TextBox Margin="10,193,10,10" TextWrapping="Wrap" Text="Wynik polecenia"/>
-        <Button x:Name="buttonLaunchSql" Content="Wykonaj" Margin="261,152,256,197"/>
+        <Button x:Name="buttonLaunchSql" Content="Wykonaj" Margin="261,152,256,0" Height="20" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

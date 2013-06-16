@@ -3,6 +3,9 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="DbToXmlWindow" Height="400" Width="600">
     <Grid>
+        <Grid.Background>
+            <SolidColorBrush Color="{DynamicResource MainColor}"/>
+        </Grid.Background>
         <Button x:Name="button_openSdfFile" Content="Wczytaj plik *.sdf" Margin="0,21,160,0" VerticalAlignment="Top" Height="23" Click="button_openSdfFile_Click" HorizontalAlignment="Right" Width="96"/>
         <TextBox x:Name="textBox_pathToSDF" Height="23" Margin="26,21,316,0" TextWrapping="Wrap" Text="Ścieżka do pliku ..." VerticalAlignment="Top"/>
         <TextBox Margin="26,78,316,25" TextWrapping="Wrap"/>
