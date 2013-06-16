@@ -66,7 +66,6 @@ namespace XML_DB
             newWindow.ShowDialog();
 
         }
-
         private void buttonCommand_Click(object sender, RoutedEventArgs e)
         {
             var newWindow = new LaunchSqlCommand();
