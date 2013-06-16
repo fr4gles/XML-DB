@@ -70,6 +70,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="ConnectToSql.cs" />
+    <Compile Include="ManageMsSqlDb.cs" />
     <Compile Include="XmlParseAndRead.cs" />
     <Compile Include="XmlToSql.cs" />
     <Compile Include="_MyDatabase_1DataSet.Designer.cs">
@@ -129,9 +130,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="MyDatabase#1.sdf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
+    <Content Include="MyDatabase#1.sdf" />
     <Resource Include="xml-samples\xml-sample-1.xml">
       <SubType>Designer</SubType>
     </Resource>
