@@ -11,7 +11,7 @@ namespace XML_DB
     public class CommandLauncher
     {
 
-               public static string LaunchSqlCommand(string sqlCommand)
+        public static string LaunchSqlCommand(string sqlCommand)
         {
             string ret = "";
 
