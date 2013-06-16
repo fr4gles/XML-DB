@@ -41,8 +41,11 @@ namespace XML_DB
             if (!openDialog.ShowDialog().Value) return;
 
             var pathToFile = openDialog.FileName;
+            textBox_pathToXML.Text = pathToFile;
+
             var result = new XmlParseAndRead(pathToFile);
             var xmlResult = new XmlToSql(result.ReadTableName());
+
             textBox_main.Text = xmlResult.MakeSqlCreateDbCommandFrom(result.ReadStructure());
             
             textBox_main.Text += "\n\n";
@@ -64,6 +67,7 @@ namespace XML_DB
             if (!openDialog.ShowDialog().Value) return;
 
             var pathToFile = openDialog.FileName;
+            textBox_pathToSDF.Text = pathToFile;
 
             var sql = new ConnectToSql(pathToFile);
 
