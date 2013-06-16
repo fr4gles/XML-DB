@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Xml;
 
 namespace XML_DB
 {
@@ -83,7 +84,11 @@ namespace XML_DB
                 DbToXmlWriter.CreateStructure(listBox_tables.SelectedItem.ToString()) +
                       DbToXmlWriter.CreateRecords(listBox_tables.SelectedItem.ToString())
                       + "  </table>\n</database>\n";
-            webBrowserXml.NavigateToString(tmp);
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.LoadXml(tmp);
+            //webBrowserXml.NavigateToString(tmp);
+            xmlDoc.Save("tempXml.xml");            
+            webBrowserXml.Navigate(Environment.CurrentDirectory.ToString()+"\\tempXml.xml");
         }
     }
 }

@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<database>
+  <table>
+    <Name>TestTable</Name>
+    <Structure>
+      <Field>
+        <Field_Name>CUSTOMER_NUMBER</Field_Name>
+        <Field_Type>int</Field_Type>
+        <Field_Atr>NOT NULL</Field_Atr>
+      </Field>
+      <Field>
+        <Field_Name>NAME</Field_Name>
+        <Field_Type>nvarchar(50)</Field_Type>
+        <Field_Atr>NOT NULL</Field_Atr>
+      </Field>
+      <Field>
+        <Field_Name>STREET</Field_Name>
+        <Field_Type>nvarchar(50)</Field_Type>
+        <Field_Atr>NOT NULL</Field_Atr>
+      </Field>
+      <Field>
+        <Field_Name>CITY</Field_Name>
+        <Field_Type>nvarchar(50)</Field_Type>
+        <Field_Atr>NOT NULL</Field_Atr>
+      </Field>
+      <Field>
+        <Field_Name>POST_CODE</Field_Name>
+        <Field_Type>nvarchar(50)</Field_Type>
+      </Field>
+      <Field>
+        <Field_Name>COUNTRY</Field_Name>
+        <Field_Type>nvarchar(50)</Field_Type>
+        <Field_Atr>NOT NULL</Field_Atr>
+      </Field>
+      <Field>
+        <Field_Name>PHONE</Field_Name>
+        <Field_Type>nvarchar(50)</Field_Type>
+        <Field_Atr>NOT NULL</Field_Atr>
+      </Field>
+    </Structure>
+    <Records>
+      <Record>
+        <CUSTOMER_NUMBER>0</CUSTOMER_NUMBER>
+        <NAME>Michał Franczyk</NAME>
+        <STREET>al. Wiartu</STREET>
+        <CITY>Kraków</CITY>
+        <POST_CODE>33-340</POST_CODE>
+        <COUNTRY>Polska</COUNTRY>
+        <PHONE>931-321-412</PHONE>
+      </Record>
+
+      <Record>
+        <CUSTOMER_NUMBER>007</CUSTOMER_NUMBER>
+        <NAME>Zbyszko z Bogdańca</NAME>
+        <STREET>Ziemianka</STREET>
+        <CITY>Wieś pod Starachowicami</CITY>
+        <POST_CODE>-</POST_CODE>
+        <COUNTRY>Polska</COUNTRY>
+        <PHONE>777-777-777</PHONE>
+      </Record>
+
+      <Record>
+        <CUSTOMER_NUMBER>2</CUSTOMER_NUMBER>
+        <NAME>Zawisza Czarny</NAME>
+        <STREET>Zamek Niezniszczany</STREET>
+        <CITY>Czarnowisy</CITY>
+        <POST_CODE>-</POST_CODE>
+        <COUNTRY>Polska</COUNTRY>
+        <PHONE>888-888-888</PHONE>
+      </Record>
+
+    </Records>
+  </table>
+  <table>
+    <Name>TestTable2</Name>
+    <Structure>
+      <Field>
+        <Field_Name>CUSTOMER_NUMBER</Field_Name>
+        <Field_Type>int</Field_Type>
+        <Field_Atr>NOT NULL</Field_Atr>
+      </Field>
+      <Field>
+        <Field_Name>NAME</Field_Name>
+        <Field_Type>nvarchar(50)</Field_Type>
+        <Field_Atr>NOT NULL</Field_Atr>
+      </Field>
+      <Field>
+        <Field_Name>STREET</Field_Name>
+        <Field_Type>nvarchar(50)</Field_Type>
+        <Field_Atr>NOT NULL</Field_Atr>
+      </Field>
+      <Field>
+        <Field_Name>CITY</Field_Name>
+        <Field_Type>nvarchar(50)</Field_Type>
+        <Field_Atr>NOT NULL</Field_Atr>
+      </Field>
+      <Field>
+        <Field_Name>POST_CODE</Field_Name>
+        <Field_Type>nvarchar(50)</Field_Type>
+      </Field>
+      <Field>
+        <Field_Name>COUNTRY</Field_Name>
+        <Field_Type>nvarchar(50)</Field_Type>
+        <Field_Atr>NOT NULL</Field_Atr>
+      </Field>
+      <Field>
+        <Field_Name>PHONE</Field_Name>
+        <Field_Type>nvarchar(50)</Field_Type>
+        <Field_Atr>NOT NULL</Field_Atr>
+      </Field>
+    </Structure>
+    <Records>
+      <Record>
+        <CUSTOMER_NUMBER>0</CUSTOMER_NUMBER>
+        <NAME>Michał Franczyk</NAME>
+        <STREET>al. Wiartu</STREET>
+        <CITY>Kraków</CITY>
+        <POST_CODE>33-340</POST_CODE>
+        <COUNTRY>Polska</COUNTRY>
+        <PHONE>931-321-412</PHONE>
+      </Record>
+
+      <Record>
+        <CUSTOMER_NUMBER>007</CUSTOMER_NUMBER>
+        <NAME>Zbyszko z Bogdańca</NAME>
+        <STREET>Ziemianka</STREET>
+        <CITY>Wieś pod Starachowicami</CITY>
+        <POST_CODE>-</POST_CODE>
+        <COUNTRY>Polska</COUNTRY>
+        <PHONE>777-777-777</PHONE>
+      </Record>
+
+      <Record>
+        <CUSTOMER_NUMBER>2</CUSTOMER_NUMBER>
+        <NAME>Zawisza Czarny</NAME>
+        <STREET>Zamek Niezniszczany</STREET>
+        <CITY>Czarnowisy</CITY>
+        <POST_CODE>-</POST_CODE>
+        <COUNTRY>Polska</COUNTRY>
+        <PHONE>888-888-888</PHONE>
+      </Record>
+
+    </Records>
+  </table>
+</database>
