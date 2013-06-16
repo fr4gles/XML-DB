@@ -71,13 +71,30 @@
     </ApplicationDefinition>
     <Compile Include="ConnectToSql.cs" />
     <Compile Include="ManageMsSqlDb.cs" />
+    <Compile Include="DbToXmlWindow.xaml.cs">
+      <DependentUpon>DbToXmlWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LaunchSqlCommand.xaml.cs">
+      <DependentUpon>LaunchSqlCommand.xaml</DependentUpon>
+    </Compile>
     <Compile Include="XmlParseAndRead.cs" />
+    <Compile Include="XmlToDbWindow.xaml.cs">
+      <DependentUpon>XmlToDbWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="XmlToSql.cs" />
     <Compile Include="_MyDatabase_1DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>_MyDatabase_1DataSet.xsd</DependentUpon>
     </Compile>
+    <Page Include="DbToXmlWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LaunchSqlCommand.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -90,6 +107,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="XmlToDbWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

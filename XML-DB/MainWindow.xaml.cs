@@ -34,25 +34,31 @@ namespace XML_DB
             textBox_main.Text = "";
 
             var openDialog = new OpenFileDialog
-                {
-                    Filter = "xml files (*.xml)|*.xml|All files (*.*)|*.*",
-                    InitialDirectory = Environment.CurrentDirectory,
-                    Title = "Wybierz plik xml"
-                };
+            {
+                Filter = "xml files (*.xml)|*.xml|All files (*.*)|*.*",
+                InitialDirectory = Environment.CurrentDirectory,
+                Title = "Wybierz plik xml"
+            };
 
             if (!openDialog.ShowDialog().Value) return;
 
             var pathToFile = openDialog.FileName;
-            textBox_pathToXML.Text = pathToFile;
+            textBox_pathToXML.Text = pathToFile;            
 
             var result = new XmlParseAndRead(pathToFile);
             var xmlResult = new XmlToSql(result.ReadTableName());
 
+
+
+
             textBox_main.Text = xmlResult.MakeSqlCreateDbCommandFrom(result.ReadStructure());
-            
+
             textBox_main.Text += "\n\n";
 
             textBox_main.Text += xmlResult.MakeSqlInsertValuesDbCommandFrom(result.ReadRecords());
+
+
+
         }
 
         private void button_openSdfFile_Click(object sender, RoutedEventArgs e)
@@ -78,7 +84,6 @@ namespace XML_DB
 
         private void buttonLaunch_Click(object sender, RoutedEventArgs e)
         {
-
             var openDialog = new OpenFileDialog
             {
                 Filter = "xml files (*.sdf)|*.sdf|All files (*.*)|*.*",
@@ -92,32 +97,53 @@ namespace XML_DB
             
 
             var connection = new SqlCeConnection(@"Data Source=" + pathToFile + ";password=xml-db123");
-            connection.Open();
-            
+            connection.Open();            
 
             SqlCeCommand cmd = connection.CreateCommand();
 
             cmd.CommandText = "select * from TestTable";
             SqlCeDataReader reader = cmd.ExecuteReader();
 
+
+
+
+            string ret = "";   
             while (reader.Read())
             {
-               int j=0;
-               string row = "Rekord: " + j;
-                
+               int j=0;                       
                 
                 for (int i = 0; i < reader.FieldCount; i++)
                 {
-                  row+= "\nCol name:: " + reader.GetName(i) + " Col type: " + reader.GetDataTypeName(i);
-                    
-                }
-                
-                MessageBox.Show(row);
-                j++;
-                
-
-            }          
+                    ret += "\nCol name:: " + reader.GetName(i) + " Col type: " + reader.GetDataTypeName(i);                    
+                }                            
+               
+            }
+            MessageBox.Show(ret);        
             
+        }
+
+        private void buttonXmlToDb_Click(object sender, RoutedEventArgs e)
+        {
+
+            var newWindow = new XmlToDbWindow();
+            newWindow.Show();            
+        }
+
+        private void buttonDbToXml_Click(object sender, RoutedEventArgs e)
+        {
+            var newWindow = new DbToXmlWindow();
+            newWindow.Show();   
+        }
+
+        private void buttonSettings_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void buttonCommand_Click(object sender, RoutedEventArgs e)
+        {
+            var newWindow = new LaunchSqlCommand();
+            newWindow.Show(); 
         }
     }
 }
