@@ -29,8 +29,6 @@ namespace XML_DB
         {
             textBox_main.Text = "";
 
-
-
             var openDialog = new OpenFileDialog
             {
                 Filter = "xml files (*.xml)|*.xml|All files (*.*)|*.*",
@@ -51,7 +49,6 @@ namespace XML_DB
             textBox_main.Text = xmlResult.MakeSqlCreateDbCommandFrom(result.ReadStructure());
             textBox_main.Text += "\n\n";
             textBox_main.Text += xmlResult.MakeSqlInsertValuesDbCommandFrom(result.ReadRecords());
-
         }
 
         private void buttonSave_Click(object sender, RoutedEventArgs e)

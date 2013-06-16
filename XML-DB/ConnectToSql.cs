@@ -5,17 +5,21 @@ using System.Data.SqlServerCe;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace XML_DB
 {
     public class ConnectToSql
     {
-        public List<string> TableList;
-        
+        private IEnumerable<string> TableList;
+
+        public bool isEmpty = true;
+
+        private SqlCeConnection connection;
 
         public ConnectToSql(string pathToFile)
         {
-            var connection = new SqlCeConnection(@"Data Source=" + pathToFile + ";password=xml-db123");
+            connection = new SqlCeConnection(@"Data Source=" + pathToFile + ";password=xml-db123");
 
             connection.Open();
 
@@ -33,12 +37,28 @@ namespace XML_DB
             var ds = new DataSet();
             dataAdapter.Fill(ds);
 
-            TableList = ManageMsSqlDb.ReadTablesFrom(ds).ToList();
+            TableList = ManageMsSqlDb.ReadTablesFrom(ds);
+
+            if (TableList.Any())
+                isEmpty = false;
         }
 
-        public void GetDataFromTable(string tableName)
+        public IEnumerable<string> GetTablesNames()
         {
-            
+            return TableList;
+        }
+
+        public DataView GetDataFromTable(string tableName)
+        {
+            var tmp = new DataTable(tableName);
+
+            var tableQuery = new SqlCeCommand("SELECT * FROM " + tableName, connection);
+
+            var dataAdapter = new SqlCeDataAdapter(tableQuery);
+
+            dataAdapter.Fill(tmp);
+
+            return tmp.DefaultView;
         }
     }
 }

@@ -20,6 +20,8 @@ namespace XML_DB
     /// </summary>
     public partial class DbToXmlWindow : Window
     {
+        private ConnectToSql sql;
+
         public DbToXmlWindow()
         {
             InitializeComponent();
@@ -27,7 +29,7 @@ namespace XML_DB
 
         private void button_openSdfFile_Click(object sender, RoutedEventArgs e)
         {
-            
+
             var openDialog = new OpenFileDialog
             {
                 Filter = "xml files (*.sdf)|*.sdf|All files (*.*)|*.*",
@@ -40,8 +42,47 @@ namespace XML_DB
             var pathToFile = openDialog.FileName;
             textBox_pathToSDF.Text = pathToFile;
 
-            var sql = new ConnectToSql(pathToFile);
+            sql = new ConnectToSql(pathToFile);
 
+            if (sql.isEmpty)
+            {
+                MessageBox.Show("Wczytana baza danych: " + pathToFile +
+                                " --> niestety nie zawiera żadnych tabel. Wybierz inny plik.");
+                return;
+            }
+
+            try
+            {
+                listBox_tables.ItemsSource = sql.GetTablesNames();
+                listBox_tables.SelectedIndex = 0;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Błą podczas wczytywania listBoxa - operacja wczytywania zostaje przerwana: " + ex.Message + "\n" + ex.StackTrace);
+                return;
+            }
+
+
+            RefreshView();
+        }
+
+        private void RefreshView()
+        {
+            try
+            {
+                datagrid_tableRows.ItemsSource = sql.GetDataFromTable(listBox_tables.SelectedItem.ToString());
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Błą podczas wczytywania listView - operacja wczytywania zostaje przerwana: " + ex.Message +
+                                "\n" + ex.StackTrace);
+                return;
+            }
+        }
+
+        private void listBox_tables_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            RefreshView();
         }
     }
 }
