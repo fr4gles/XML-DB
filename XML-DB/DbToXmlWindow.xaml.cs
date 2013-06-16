@@ -88,7 +88,7 @@ namespace XML_DB
             xmlDoc = new XmlDocument();
             xmlDoc.LoadXml(tmp);
             //webBrowserXml.NavigateToString(tmp);
-                       
+            xmlDoc.Save("tempXml.xml");            
             webBrowserXml.Navigate(Environment.CurrentDirectory.ToString()+"\\tempXml.xml");
             
         }
