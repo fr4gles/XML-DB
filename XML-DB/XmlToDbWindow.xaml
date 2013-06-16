@@ -1,0 +1,13 @@
+﻿<Window x:Class="XML_DB.XmlToDbWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="XmlToDbWindow" Height="400" Width="600">
+    <Grid>
+        <Button x:Name="button_openXmlFile" Content="Wczytaj plik *.xml" Margin="0,12,157,0" VerticalAlignment="Top" Height="23" Click="button_openXmlFile_Click" HorizontalAlignment="Right" Width="119"/>
+        <TextBox x:Name="textBox_pathToXML" Height="25" Margin="10,11,317,0" TextWrapping="Wrap" Text="Ścieżka do pliku ..." VerticalAlignment="Top" RenderTransformOrigin="0.542,1.087"/>
+        <TextBox x:Name="textBox_main" TextWrapping="Wrap" HorizontalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Margin="0,71,22,10" HorizontalAlignment="Right" Width="265" />
+        <WebBrowser x:Name="webBrowserXml" Margin="10,71,317,10"/>
+        <Button x:Name="buttonSave" Content="Konwertuj" Margin="0,11,22,0" Click="buttonSave_Click" Height="23" VerticalAlignment="Top" HorizontalAlignment="Right" Width="116"/>
+
+    </Grid>
+</Window>

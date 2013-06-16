@@ -4,10 +4,14 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <Button x:Name="button_openXmlFile" Content="Wczytaj plik *.xml" Margin="0,10,10,0" VerticalAlignment="Top" Height="23" Click="button_openXmlFile_Click" HorizontalAlignment="Right" Width="126"/>
-        <TextBox x:Name="textBox_pathToXML" Height="23" Margin="10,10,141,0" TextWrapping="Wrap" Text="Ścieżka do pliku ..." VerticalAlignment="Top" RenderTransformOrigin="0.542,1.087"/>
-        <TextBox x:Name="textBox_main" TextWrapping="Wrap" Text="Napisz coś ... ;)" HorizontalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Margin="10,69,10,150" />
+        <TextBox x:Name="textBox_pathToXML" Height="23" Margin="10,9,141,0" TextWrapping="Wrap" Text="Ścieżka do pliku ..." VerticalAlignment="Top" RenderTransformOrigin="0.542,1.087"/>
+        <TextBox x:Name="textBox_main" TextWrapping="Wrap" Text="Napisz coś ... ;)" HorizontalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Margin="10,72,10,147" />
         <Button x:Name="button_openSdfFile" Content="Wczytaj plik *.sdf" Margin="0,39,10,0" VerticalAlignment="Top" Height="23" Click="button_openSdfFile_Click" HorizontalAlignment="Right" Width="126"/>
-        <TextBox x:Name="textBox_pathToSDF" Height="23" Margin="10,39,141,0" TextWrapping="Wrap" Text="Ścieżka do pliku ..." VerticalAlignment="Top"/>
-        <Button x:Name="buttonLaunch" Content="Launch" HorizontalAlignment="Left" Margin="225,270,0,0" VerticalAlignment="Top" Width="75" Click="buttonLaunch_Click"/>
+        <TextBox x:Name="textBox_pathToSDF" Height="23" Margin="10,42,141,0" TextWrapping="Wrap" Text="Ścieżka do pliku ..." VerticalAlignment="Top"/>
+        <Button x:Name="buttonLaunch" Content="Launch(stare)" HorizontalAlignment="Left" Margin="416,188,0,0" VerticalAlignment="Top" Width="75" Click="buttonLaunch_Click"/>
+        <Button x:Name="buttonXmlToDb" Content="XML - &gt; DB" HorizontalAlignment="Left" Margin="30,223,0,0" VerticalAlignment="Top" Width="75" Click="buttonXmlToDb_Click"/>
+        <Button x:Name="buttonDbToXml" Content="DB - &gt; XML" HorizontalAlignment="Left" Margin="136,223,0,0" VerticalAlignment="Top" Width="75" Click="buttonDbToXml_Click"/>
+        <Button x:Name="buttonCommand" Content="Komenda SQL" HorizontalAlignment="Left" Margin="235,223,0,0" VerticalAlignment="Top" Width="82" Click="buttonCommand_Click"/>
+        <Button x:Name="buttonSettings" Content="Ustawienia" HorizontalAlignment="Left" Margin="341,223,0,0" VerticalAlignment="Top" Width="75" Click="buttonSettings_Click"/>
     </Grid>
 </Window>
