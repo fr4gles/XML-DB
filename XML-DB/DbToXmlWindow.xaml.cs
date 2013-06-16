@@ -62,8 +62,14 @@ namespace XML_DB
                 return;
             }
 
-
             RefreshView();
+        }
+
+        private void listBox_tables_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            RefreshView();
+
+            ConvertDbToXml();
         }
 
         private void RefreshView()
@@ -80,9 +86,9 @@ namespace XML_DB
             }
         }
 
-        private void listBox_tables_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void ConvertDbToXml()
         {
-            RefreshView();
+
         }
     }
 }
