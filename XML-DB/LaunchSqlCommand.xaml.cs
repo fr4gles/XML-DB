@@ -26,8 +26,7 @@ namespace XML_DB
 
         private void buttonLaunchSql_Click(object sender, RoutedEventArgs e)
         {
-            textBoxReturn.Text=CommandLauncher.LaunchSqlCommandWithReturn(textBoxCommand.Text);            
-
+            textBoxReturn.Text = CommandLauncher.LaunchSqlCommand(textBoxCommand.Text);           
         }
     }
 }

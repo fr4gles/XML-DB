@@ -19,6 +19,8 @@ namespace XML_DB
     /// </summary>
     public partial class XmlToDbWindow : Window
     {
+        string createCommand;
+        string insertCommand;
         public XmlToDbWindow()
         {
             InitializeComponent();
@@ -44,17 +46,41 @@ namespace XML_DB
 
             var result = new XmlParseAndRead(pathToFile);
             var xmlResult = new XmlToSql(result.ReadTableName());
-
-            textBox_main.Text = xmlResult.MakeSqlCreateDbCommandFrom(result.ReadStructure());
+            createCommand = xmlResult.MakeSqlCreateDbCommandFrom(result.ReadStructure()); ;
+            textBox_main.Text = createCommand;
             textBox_main.Text += "\n\n";
-            textBox_main.Text += xmlResult.MakeSqlInsertValuesDbCommandFrom(result.ReadRecords());
+            insertCommand= xmlResult.MakeSqlInsertValuesDbCommandFrom(result.ReadRecords());;
+            textBox_main.Text += insertCommand;
         }
 
         private void buttonSave_Click(object sender, RoutedEventArgs e)
-        {            
+        {
+            //CommandLauncher.LaunchSqlCommand("DROP TABLE TestTable");
 
+            CommandLauncher.LaunchSqlCommand("drop table TestTable");
 
+            //MessageBox.Show(createCommand);    
+            string[] words = createCommand.Split(';');
 
+            for (int i = 0; i < words.Length - 1; i++)            
+            {
+                //MessageBox.Show(words[i]);                
+                CommandLauncher.LaunchSqlCommand(words[i]);
+            }
+
+            
+            //MessageBox.Show(insertCommand);    
+            string[] words2 = insertCommand.Split(';');
+            for (int i = 0; i < words2.Length - 1; i++)    
+            {
+                //MessageBox.Show(words2[i]); 
+                CommandLauncher.LaunchSqlCommand(words2[i]);
+            }
+            
+
+            
+
+            
         }
     }
 }
