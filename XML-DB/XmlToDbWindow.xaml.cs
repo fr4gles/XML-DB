@@ -55,32 +55,27 @@ namespace XML_DB
 
         private void buttonSave_Click(object sender, RoutedEventArgs e)
         {
-            //CommandLauncher.LaunchSqlCommand("DROP TABLE TestTable");
+            try
+            {
+                CommandLauncher.LaunchSqlCommand("drop table TestTable");
+            }
+            catch (Exception)
+            {
+                // puste, for testing
+            }
 
-            CommandLauncher.LaunchSqlCommand("drop table TestTable");
-
-            //MessageBox.Show(createCommand);    
             string[] words = createCommand.Split(';');
 
             for (int i = 0; i < words.Length - 1; i++)            
             {
-                //MessageBox.Show(words[i]);                
                 CommandLauncher.LaunchSqlCommand(words[i]);
             }
-
-            
-            //MessageBox.Show(insertCommand);    
+  
             string[] words2 = insertCommand.Split(';');
             for (int i = 0; i < words2.Length - 1; i++)    
             {
-                //MessageBox.Show(words2[i]); 
                 CommandLauncher.LaunchSqlCommand(words2[i]);
             }
-            
-
-            
-
-            
         }
     }
 }
