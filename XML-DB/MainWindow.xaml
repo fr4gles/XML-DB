@@ -1,14 +1,14 @@
 ﻿ <Window x:Class="XML_DB.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
+        Title="XML &lt;-&gt; DB (M. Franczyk, Z. Bielesz)" Height="300" Width="500">
     <Grid>
         <Grid.Background>
             <SolidColorBrush Color="{DynamicResource MainColor}"/>
         </Grid.Background>
-        <Button x:Name="buttonXmlToDb" Content="XML - &gt; DB" HorizontalAlignment="Left" Margin="21,26,0,0" VerticalAlignment="Top" Width="199" Click="buttonXmlToDb_Click" Height="34"/>
-        <Button x:Name="buttonDbToXml" Content="DB - &gt; XML" HorizontalAlignment="Left" Margin="276,26,0,0" VerticalAlignment="Top" Width="199" Click="buttonDbToXml_Click" Height="34"/>
-        <Button x:Name="buttonCommand" Content="Komenda SQL" HorizontalAlignment="Left" Margin="154,99,0,0" VerticalAlignment="Top" Width="199" Click="buttonCommand_Click" Height="35"/>
-        <Button x:Name="buttonSettings" Content="Ustawienia" HorizontalAlignment="Left" Margin="154,157,0,0" VerticalAlignment="Top" Width="199" Click="buttonSettings_Click" Height="35"/>
+        <Button x:Name="buttonXmlToDb" Content="XML - &gt; DB" Margin="25,25,0,0" Click="buttonXmlToDb_Click" Height="35" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200" BorderThickness="2"/>
+        <Button x:Name="buttonDbToXml" Content="DB - &gt; XML" HorizontalAlignment="Left" Margin="264,25,0,0" Width="200" Click="buttonDbToXml_Click" Height="35" VerticalAlignment="Top" BorderThickness="2"/>
+        <Button x:Name="buttonCommand" Content="Komenda SQL" HorizontalAlignment="Left" Margin="150,110,0,0" VerticalAlignment="Top" Width="200" Click="buttonCommand_Click" Height="35" BorderThickness="2"/>
+        <Button x:Name="buttonSettings" Content="Ustawienia" HorizontalAlignment="Left" Margin="150,182,0,0" VerticalAlignment="Top" Width="200" Click="buttonSettings_Click" Height="35" BorderThickness="2"/>
     </Grid>
 </Window>

@@ -6,11 +6,11 @@
         <Grid.Background>
             <SolidColorBrush Color="{DynamicResource MainColor}"/>
         </Grid.Background>
-        <Button x:Name="button_openXmlFile" Content="Wczytaj plik *.xml" Margin="0,12,157,0" VerticalAlignment="Top" Height="23" Click="button_openXmlFile_Click" HorizontalAlignment="Right" Width="119"/>
-        <TextBox x:Name="textBox_pathToXML" Height="25" Margin="10,11,317,0" TextWrapping="Wrap" Text="Ścieżka do pliku ..." VerticalAlignment="Top" RenderTransformOrigin="0.542,1.087"/>
-        <TextBox x:Name="textBox_main" TextWrapping="Wrap" HorizontalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Margin="0,71,22,10" HorizontalAlignment="Right" Width="265" />
-        <WebBrowser x:Name="webBrowserXml" Margin="10,71,317,10"/>
-        <Button x:Name="buttonSave" Content="Wykonaj" Margin="0,11,22,0" Click="buttonSave_Click" Height="23" VerticalAlignment="Top" HorizontalAlignment="Right" Width="116"/>
+        <Button x:Name="button_openXmlFile" Content="Wczytaj plik *.xml" Margin="0,15,160,0" VerticalAlignment="Top" Height="30" Click="button_openXmlFile_Click" HorizontalAlignment="Right" Width="130" BorderThickness="2"/>
+        <TextBox x:Name="textBox_pathToXML" Height="30" Margin="10,15,317,0" TextWrapping="Wrap" Text="Ścieżka do pliku ..." VerticalAlignment="Top" RenderTransformOrigin="0.542,1.087" BorderThickness="2"/>
+        <TextBox x:Name="textBox_main" TextWrapping="Wrap" HorizontalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" VerticalScrollBarVisibility="Auto" AcceptsReturn="True" Margin="0,71,12,10" HorizontalAlignment="Right" Width="278" BorderThickness="2" />
+        <WebBrowser x:Name="webBrowserXml" Margin="12,71,317,10"/>
+        <Button x:Name="buttonSave" Content="Wykonaj" Margin="0,15,12,0" Click="buttonSave_Click" Height="30" VerticalAlignment="Top" HorizontalAlignment="Right" Width="130" BorderThickness="2"/>
 
     </Grid>
 </Window>
