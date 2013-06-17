@@ -21,6 +21,7 @@ namespace XML_DB
     {
         string createCommand;
         string insertCommand;
+
         public XmlToDbWindow()
         {
             InitializeComponent();
@@ -46,14 +47,26 @@ namespace XML_DB
 
             var result = new XmlParseAndRead(pathToFile);
             var xmlResult = new XmlToSql(result.ReadTableName());
+
             createCommand = xmlResult.MakeSqlCreateDbCommandFrom(result.ReadStructure()); ;
             textBox_main.Text = createCommand;
+            
             textBox_main.Text += "\n\n";
-            insertCommand= xmlResult.MakeSqlInsertValuesDbCommandFrom(result.ReadRecords());;
+
+            insertCommand = xmlResult.MakeSqlInsertValuesDbCommandFrom(result.ReadRecords()); ;
             textBox_main.Text += insertCommand;
         }
 
         private void buttonSave_Click(object sender, RoutedEventArgs e)
+        {
+            DropAllTablesInDb();
+
+            SplitCreateCommand();
+
+            SplitInsertCommand();
+        }
+
+        private static void DropAllTablesInDb()
         {
             // usuwannie wszystkich table z bazy
             try
@@ -61,25 +74,31 @@ namespace XML_DB
                 var tmpConn = new ConnectToSql(MainWindow.mainSettings.databasePath);
                 foreach (var tableName in tmpConn.GetTableNames())
                 {
-                    CommandLauncher.LaunchSqlCommand("drop table "+ tableName, tmpConn.connection);
+                    CommandLauncher.LaunchSqlCommand("drop table " + tableName, tmpConn.connection);
                 }
             }
             catch (Exception)
             {
                 // puste, for testing
             }
+        }
 
-            string[] words = createCommand.Split(';');
-
-            for (int i = 0; i < words.Length - 1; i++)            
-            {
-                CommandLauncher.LaunchSqlCommand(words[i]);
-            }
-  
+        private void SplitInsertCommand()
+        {
             string[] words2 = insertCommand.Split(';');
-            for (int i = 0; i < words2.Length - 1; i++)    
+            for (int i = 0; i < words2.Length - 1; i++)
             {
                 CommandLauncher.LaunchSqlCommand(words2[i]);
+            }
+        }
+
+        private void SplitCreateCommand()
+        {
+            string[] words = createCommand.Split(';');
+
+            for (int i = 0; i < words.Length - 1; i++)
+            {
+                CommandLauncher.LaunchSqlCommand(words[i]);
             }
         }
     }

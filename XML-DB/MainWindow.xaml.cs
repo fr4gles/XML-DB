@@ -49,7 +49,6 @@ namespace XML_DB
               
         private void buttonXmlToDb_Click(object sender, RoutedEventArgs e)
         {
-
             var newWindow = new XmlToDbWindow();
             newWindow.Show();            
         }
@@ -64,7 +63,6 @@ namespace XML_DB
         {
             var newWindow = new SettingsWindow();
             newWindow.ShowDialog();
-
         }
         private void buttonCommand_Click(object sender, RoutedEventArgs e)
         {

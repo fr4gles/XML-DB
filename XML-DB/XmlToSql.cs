@@ -23,7 +23,7 @@ namespace XML_DB
             if (fields == null) return null;
 
             var createTable = "Create table " + _tableName + " \n(\n"
-                                 + "id int NOT NULL IDENTITY,\n";
+                /*+ "id int NOT NULL IDENTITY,\n"*/;
 
             var colName = "";
             var colType = "";
@@ -52,7 +52,10 @@ namespace XML_DB
                     MessageBox.Show(ex.Message + " | " + ex.StackTrace);
                 }
 
-                createTable += colName + " " + colType + " " + comAtr + ",\n";
+                if(!colName.ToLower().Equals("id"))
+                    createTable += colName + " " + colType + " " + comAtr + ",\n";
+                else
+                    createTable += colName + " " + colType + " " + comAtr + " IDENTITY,\n";
             }
 
             createTable += "PRIMARY KEY ( id )\n"
