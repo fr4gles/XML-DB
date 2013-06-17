@@ -11,7 +11,7 @@ namespace XML_DB
     public class XmlToSql
     {
         private string _tableName;
-        public List<string> COLUMNS = new List<string>();
+        public readonly List<string> COLUMNS = new List<string>();
 
         public XmlToSql(string tableName)
         {
@@ -28,6 +28,9 @@ namespace XML_DB
             var colName = "";
             var colType = "";
             var comAtr = "";
+
+            var foundID = false;
+
             foreach (var field in fields)
             {
                 try
@@ -52,11 +55,14 @@ namespace XML_DB
                     MessageBox.Show(ex.Message + " | " + ex.StackTrace);
                 }
 
-                if(!colName.ToLower().Equals("id"))
-                    createTable += colName + " " + colType + " " + comAtr + ",\n";
-                else
-                    createTable += colName + " " + colType + " " + comAtr + " IDENTITY,\n";
+                if (colName.ToLower() == "id")
+                    foundID = true;
+
+                createTable += colName + " " + colType + " " + comAtr + ",\n";
             }
+
+            if (!foundID)
+                createTable += "id int NOT NULL IDENTITY,\n";
 
             createTable += "PRIMARY KEY ( id )\n"
                            + ");\n";
