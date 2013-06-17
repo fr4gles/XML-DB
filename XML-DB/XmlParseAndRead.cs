@@ -70,7 +70,5 @@ namespace XML_DB
 
             return q;
         }
-
-
     }
 }

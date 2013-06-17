@@ -56,8 +56,6 @@ namespace XML_DB
 
             var pathToFile = openDialog.FileName;
             textBox_pathToSDF.Text = pathToFile;          
-
-
         }
     }
 }

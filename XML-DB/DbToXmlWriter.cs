@@ -11,6 +11,11 @@ namespace XML_DB
     {
         private static int size;
 
+        public static string CreateXmlBody(string tableName)
+        {
+            return "<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n<database>\n<table>\n" + CreateStructure(tableName) + CreateRecords(tableName) + " </table>\n</database>\n";
+        }
+
         public static string CreateStructure(string tableName)
         {
             var structure = "<Name>" + tableName + "</Name>\n<Structure>\n";
@@ -33,15 +38,15 @@ namespace XML_DB
                 {
                     var Field_Name = reader.GetName(i);
                     var Field_Type = reader.GetDataTypeName(i);
-                    
+
 
                     var cmdIsNullable = connection.CreateCommand();
                     cmdIsNullable.CommandText = @"SELECT IS_NULLABLE FROM INFORMATION_SCHEMA.COLUMNS WHERE (TABLE_Name = '" + tableName +
-                                  "' and COLUMN_NAME = '"+ Field_Name +"') ORDER BY ORDINAL_POSITION";
+                                  "' and COLUMN_NAME = '" + Field_Name + "') ORDER BY ORDINAL_POSITION";
                     var isNullable = cmdIsNullable.ExecuteReader();
 
                     var Field_Atr = "NOT NULL";
-                    if(isNullable.GetName(0).Equals("NO"))
+                    if (isNullable.GetName(0).Equals("NO"))
                         Field_Atr = null;
 
                     structure += AddField(Field_Name, Field_Type, Field_Atr);

@@ -22,10 +22,5 @@ namespace XML_DB
                 }
             }
         }
-
-        public static void ReadStructureFrom()
-        {
-            
-        }
     }
 }

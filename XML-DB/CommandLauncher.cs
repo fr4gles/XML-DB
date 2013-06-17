@@ -8,20 +8,23 @@ using System.Windows;
 
 namespace XML_DB
 {
-    public class CommandLauncher
+    public static class CommandLauncher
     {
-
-        public static string LaunchSqlCommand(string sqlCommand)
+        public static string LaunchSqlCommand(string sqlCommand, SqlCeConnection connection = null)
         {
             string ret = "";
 
             try
-            {                
-                var connection = new SqlCeConnection(@"Data Source=" + MainWindow.mainSettings.databasePath + ";password=" + MainWindow.mainSettings.password);
-                connection.Open();
-                SqlCeCommand cmd = connection.CreateCommand();
+            {
+                if (connection == null)
+                {
+                    connection = new SqlCeConnection(@"Data Source=" + MainWindow.mainSettings.databasePath + ";password=" + MainWindow.mainSettings.password);
+                    connection.Open();
+                }
+
+                var cmd = connection.CreateCommand();
                 cmd.CommandText = sqlCommand;
-                SqlCeDataReader rdr = cmd.ExecuteReader();
+                var rdr = cmd.ExecuteReader();
 
                 while (rdr.Read())
                 {
@@ -35,14 +38,9 @@ namespace XML_DB
             catch (SqlCeException e)
             {
                 MessageBox.Show(e.ToString());
-            }          
-
+            }
 
             return ret;
         }
-
-
-
-
     }
 }

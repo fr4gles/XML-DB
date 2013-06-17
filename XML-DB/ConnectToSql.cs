@@ -15,7 +15,7 @@ namespace XML_DB
 
         public bool isEmpty = true;
 
-        private SqlCeConnection connection;
+        public SqlCeConnection connection;
 
         public ConnectToSql(string pathToFile)
         {
@@ -41,7 +41,7 @@ namespace XML_DB
                 isEmpty = false;
         }
 
-        public IEnumerable<string> GetTablesNames()
+        public IEnumerable<string> GetTableNames()
         {
             return TableList;
         }

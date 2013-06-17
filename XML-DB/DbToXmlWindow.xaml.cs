@@ -23,6 +23,7 @@ namespace XML_DB
     {
         private ConnectToSql sql;
         XmlDocument xmlDoc;
+
         public DbToXmlWindow()
         {
             InitializeComponent();
@@ -46,7 +47,7 @@ namespace XML_DB
 
             try
             {
-                listBox_tables.ItemsSource = sql.GetTablesNames();
+                listBox_tables.ItemsSource = sql.GetTableNames();
                 listBox_tables.SelectedIndex = 0;
             }
             catch (Exception ex)
@@ -79,25 +80,18 @@ namespace XML_DB
         }
 
         private void ConvertDbToXml()
-        
         {            
-            var tmp = "<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n<database>\n<table>\n" +
-                DbToXmlWriter.CreateStructure(listBox_tables.SelectedItem.ToString()) +
-                      DbToXmlWriter.CreateRecords(listBox_tables.SelectedItem.ToString())
-                      + "  </table>\n</database>\n";
             xmlDoc = new XmlDocument();
-            xmlDoc.LoadXml(tmp);
-            //webBrowserXml.NavigateToString(tmp);
+            xmlDoc.LoadXml(DbToXmlWriter.CreateXmlBody(listBox_tables.SelectedItem.ToString()));
+
             xmlDoc.Save("tempXml.xml");            
-            webBrowserXml.Navigate(Environment.CurrentDirectory.ToString()+"\\tempXml.xml");
-            
+            webBrowserXml.Navigate(Environment.CurrentDirectory+"\\tempXml.xml");
         }
 
         private void buttonSave_Click(object sender, RoutedEventArgs e)
         {
-            var tempSaveFileDialog = new SaveFileDialog();
-            tempSaveFileDialog.Filter = "XML |*.xml";
-            tempSaveFileDialog.Title = "Zapisz plik XML";
+            var tempSaveFileDialog = new SaveFileDialog {Filter = "XML |*.xml", Title = "Zapisz plik XML"};
+
             tempSaveFileDialog.ShowDialog();
 
              if(tempSaveFileDialog.FileName!= "")

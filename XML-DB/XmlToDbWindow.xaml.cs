@@ -55,9 +55,14 @@ namespace XML_DB
 
         private void buttonSave_Click(object sender, RoutedEventArgs e)
         {
+            // usuwannie wszystkich table z bazy
             try
             {
-                CommandLauncher.LaunchSqlCommand("drop table TestTable");
+                var tmpConn = new ConnectToSql(MainWindow.mainSettings.databasePath);
+                foreach (var tableName in tmpConn.GetTableNames())
+                {
+                    CommandLauncher.LaunchSqlCommand("drop table "+ tableName, tmpConn.connection);
+                }
             }
             catch (Exception)
             {
