@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<database>
+  <table>
+    <Name>TestTable</Name>
+    <Structure>
+      <Field>
+        <Field_Name>CUSTOMER_NUMBER</Field_Name>
+        <Field_Type>int</Field_Type>
+        <Field_Atr>NOT NULL</Field_Atr>
+      </Field>
+      <Field>
+        <Field_Name>NAME</Field_Name>
+        <Field_Type>nvarchar(50)</Field_Type>
+        <Field_Atr>NOT NULL</Field_Atr>
+      </Field>
+      <Field>
+        <Field_Name>STREET</Field_Name>
+        <Field_Type>nvarchar(50)</Field_Type>
+        <Field_Atr>NOT NULL</Field_Atr>
+      </Field>
+      <Field>
+        <Field_Name>CITY</Field_Name>
+        <Field_Type>nvarchar(50)</Field_Type>
+        <Field_Atr>NOT NULL</Field_Atr>
+      </Field>
+      <Field>
+        <Field_Name>POST_CODE</Field_Name>
+        <Field_Type>nvarchar(50)</Field_Type>
+      </Field>
+      <Field>
+        <Field_Name>COUNTRY</Field_Name>
+        <Field_Type>nvarchar(50)</Field_Type>
+        <Field_Atr>NOT NULL</Field_Atr>
+      </Field>
+      <Field>
+        <Field_Name>PHONE</Field_Name>
+        <Field_Type>nvarchar(50)</Field_Type>
+        <Field_Atr>NOT NULL</Field_Atr>
+      </Field>
+    </Structure>
+    <Records>
+      <Record>
+        <CUSTOMER_NUMBER>0</CUSTOMER_NUMBER>
+        <NAME>Michał Franczyk</NAME>
+        <STREET>al. Wiartu</STREET>
+        <CITY>Stumilowy Las</CITY>
+        <POST_CODE>0-07</POST_CODE>
+        <COUNTRY>Polska</COUNTRY>
+        <PHONE>931-321-412</PHONE>
+      </Record>
+
+      <Record>
+        <CUSTOMER_NUMBER>007</CUSTOMER_NUMBER>
+        <NAME>Zbyszko z Bogdańca</NAME>
+        <STREET>Ziemianka</STREET>
+        <CITY>Starachowice</CITY>
+        <POST_CODE>-</POST_CODE>
+        <COUNTRY>Polska</COUNTRY>
+        <PHONE>777-777-777</PHONE>
+      </Record>
+
+      <Record>
+        <CUSTOMER_NUMBER>2</CUSTOMER_NUMBER>
+        <NAME>Zawisza Czarny</NAME>
+        <STREET>Zamek Niezniszczany</STREET>
+        <CITY>Czarnowisy</CITY>
+        <POST_CODE>-</POST_CODE>
+        <COUNTRY>Polska</COUNTRY>
+        <PHONE>888-888-888</PHONE>
+      </Record>
+
+      <Record>
+        <CUSTOMER_NUMBER>2</CUSTOMER_NUMBER>
+        <NAME>Bill Smith</NAME>
+        <STREET>NONAME AVENUE</STREET>
+        <CITY>Nowy Jork</CITY>
+        <POST_CODE>-</POST_CODE>
+        <COUNTRY>USA</COUNTRY>
+        <PHONE>+01123-421-213</PHONE>
+      </Record>
+
+      <Record>
+        <CUSTOMER_NUMBER>2</CUSTOMER_NUMBER>
+        <NAME>Zbigniew Bielesz</NAME>
+        <STREET>Niezniszczany Zamek</STREET>
+        <CITY>-</CITY>
+        <POST_CODE>-</POST_CODE>
+        <COUNTRY>-</COUNTRY>
+        <PHONE>44-432-514</PHONE>
+      </Record>
+
+      <Record>
+        <CUSTOMER_NUMBER>2</CUSTOMER_NUMBER>
+        <NAME>Bill Gates</NAME>
+        <STREET>Computer</STREET>
+        <CITY>Intel</CITY>
+        <POST_CODE>-</POST_CODE>
+        <COUNTRY>NONE</COUNTRY>
+        <PHONE>44-223-412</PHONE>
+      </Record>
+
+    </Records>
+  </table>
+</database>
