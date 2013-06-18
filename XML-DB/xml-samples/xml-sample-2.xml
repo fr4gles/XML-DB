@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <database>
   <table>
-    <Name>TestTable</Name>
+    <Name>MojaTabela</Name>
     <Structure>
       <Field>
         <Field_Name>CUSTOMER_NUMBER</Field_Name>

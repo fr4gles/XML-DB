@@ -22,6 +22,8 @@ namespace XML_DB
         string createCommand;
         string insertCommand;
 
+        public string tableName;
+
         public XmlToDbWindow()
         {
             InitializeComponent();
@@ -46,7 +48,8 @@ namespace XML_DB
             webBrowserXml.Navigate(pathToFile);
 
             var result = new XmlParseAndRead(pathToFile);
-            var xmlResult = new XmlToSql(result.ReadTableName());
+            tableName = result.ReadTableName();
+            var xmlResult = new XmlToSql(tableName);
 
             createCommand = xmlResult.MakeSqlCreateDbCommandFrom(result.ReadStructure()); ;
             textBox_main.Text = createCommand;
@@ -59,11 +62,30 @@ namespace XML_DB
 
         private void buttonSave_Click(object sender, RoutedEventArgs e)
         {
-            DropAllTablesInDb();
+            //DropAllTablesInDb();
+
+            DropTable();
 
             SplitCreateCommand();
 
             SplitInsertCommand();
+        }
+
+        private void DropTable()
+        {
+            // usuwannie wszystkich table z bazy
+            try
+            {
+                var tmpConn = new ConnectToSql(MainWindow.mainSettings.databasePath);
+                foreach (var tableName in tmpConn.GetTableNames().Where(o => o.Equals(tableName)) )
+                {
+                    CommandLauncher.LaunchSqlCommand("drop table " + tableName, tmpConn.connection);
+                }
+            }
+            catch (Exception)
+            {
+                // puste, for testing
+            }
         }
 
         private static void DropAllTablesInDb()
